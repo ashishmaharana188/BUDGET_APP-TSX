@@ -42,3 +42,25 @@ test("Should setup add expense", () => {
   const state = expenseReducer(fixtureExpense, action);
   expect(state).toEqual([...fixtureExpense, expense]);
 });
+
+test("Should setup edit expense", () => {
+  const amount = 200;
+  const action = {
+    type: "EDIT_EXPENSE",
+    id: fixtureExpense[1].id,
+    updates: { amount },
+  };
+  const state = expenseReducer(fixtureExpense, action);
+  expect(state[1].amount).toBe(amount);
+});
+
+test("Should setup not edit expense", () => {
+  const amount = 200;
+  const action = {
+    type: "EDIT_EXPENSE",
+    id: "4",
+    updates: { amount },
+  };
+  const state = expenseReducer(fixtureExpense, action);
+  expect(state).toEqual(fixtureExpense);
+});
