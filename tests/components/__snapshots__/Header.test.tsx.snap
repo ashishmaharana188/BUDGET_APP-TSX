@@ -1,3 +1,36 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`should render Header correctly 1`] = `null`;
+exports[`should render Header correctly 1`] = `
+<DocumentFragment>
+  <header>
+    <h1>
+      Expensify
+    </h1>
+    <a
+      aria-current="page"
+      class="nav-is-active"
+      href="/"
+    >
+      DashBoard
+    </a>
+    <a
+      class=""
+      href="/create"
+    >
+      Create Expense
+    </a>
+    <a
+      class=""
+      href="/edit"
+    >
+      Edit Expense
+    </a>
+    <a
+      class=""
+      href="/help"
+    >
+      Help
+    </a>
+  </header>
+</DocumentFragment>
+`;
