@@ -6,7 +6,9 @@
   ],
   "compilerOptions": {
     "target": "ES5",
+    "skipLibCheck": true,
     "module": "CommonJS",
+    "forceConsistentCasingInFileNames": true,
     "types": ["vite/client", "vitest"]
   }
 }
