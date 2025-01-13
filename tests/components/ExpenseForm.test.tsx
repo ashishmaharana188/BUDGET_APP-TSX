@@ -1,14 +1,5 @@
 import React from "react";
 import { test, expect } from "vitest";
-<<<<<<< HEAD
-import { render, screen } from "@testing-library/react";
-import ExpenseForm from "../../src/components/ExpenseForm";
-import { MemoryRouter } from "react-router-dom";
-import expenses from "../../tests/fixtures/expense";
-
-test("should render ExpenseForm correctly", () => {
-  const { asFragment } = render(
-=======
 import {
   render,
   fireEvent,
@@ -19,15 +10,14 @@ import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import ExpenseForm from "../../src/components/ExpenseForm";
 import { addExpense } from "./../../src/actions/expenses";
+import expenses from "../../tests/fixtures/expense";
 
 test("should render invalid form", async () => {
   const { getByPlaceholderText, getByText, asFragment } = render(
->>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
     <MemoryRouter>
       <ExpenseForm />
     </MemoryRouter>
   );
-<<<<<<< HEAD
   expect(asFragment()).toMatchSnapshot();
 });
 
@@ -40,13 +30,17 @@ test("should render one Expense correctly", () => {
   expect(asFragment()).toMatchSnapshot();
 });
 
-test("should render error with expense data", () => {
-  const { asFragment } = render(
-=======
+test("should render error with expense data", async () => {
+  const { asFragment, getByPlaceholderText, getByText } = render(
+    <MemoryRouter>
+      <ExpenseForm />
+    </MemoryRouter>
+  );
   const descriptionField = getByPlaceholderText(/Description/i);
   const amountField = getByPlaceholderText(/Amount/i); // Replace with your actual input label
 
   const submitButton = getByText(/Add Expense/i);
+
   await userEvent.click(submitButton);
 
   const errorMessage = getByText(/Please provide Description and Amount/i);
@@ -57,13 +51,11 @@ test("should render error with expense data", () => {
 
 test("should render description properly with error for amount", async () => {
   const { getByPlaceholderText, getByText, asFragment } = render(
->>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
     <MemoryRouter>
       <ExpenseForm />
     </MemoryRouter>
   );
-<<<<<<< HEAD
-=======
+
   const descriptionField = getByPlaceholderText(/Description/i);
   const amountField = getByPlaceholderText(/Amount/i); // Replace with your actual input label
 
@@ -112,6 +104,5 @@ test("should render notes properly with error", async () => {
   const errorMessage = getByText(/Please provide Description and Amount/i);
   expect(errorMessage).to.exist;
 
->>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
   expect(asFragment()).toMatchSnapshot();
 });
