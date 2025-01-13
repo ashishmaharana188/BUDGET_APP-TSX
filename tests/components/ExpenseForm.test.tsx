@@ -66,3 +66,22 @@ test("should render description properly with no error", async () => {
 
   expect(asFragment()).toMatchSnapshot();
 });
+
+test("should render notes properly with error", async () => {
+  const { getByPlaceholderText, getByText, asFragment } = render(
+    <MemoryRouter>
+      <ExpenseForm />
+    </MemoryRouter>
+  );
+  const noteField = getByPlaceholderText(/Note/i);
+
+  await userEvent.type(noteField, "Testing_note");
+
+  const submitButton = getByText(/Add Expense/i);
+  await userEvent.click(submitButton);
+
+  const errorMessage = getByText(/Please provide Description and Amount/i);
+  expect(errorMessage).to.exist;
+
+  expect(asFragment()).toMatchSnapshot();
+});

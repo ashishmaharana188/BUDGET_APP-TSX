@@ -1,1 +1,3 @@
 add option to input title and subtitle, now its showing default values.
+amount search or sortby is not implemented properly
+write implementation for specific erros for each variable. Now the error is "Please provide Description and Amount"
