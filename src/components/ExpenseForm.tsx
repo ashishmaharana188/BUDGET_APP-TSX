@@ -37,11 +37,33 @@ export default class ExpenseForm extends React.Component<
       this.setState(() => ({ amount }));
     }
   };
+<<<<<<< HEAD
   onDateChange = (createdDt: Moment | null) => {
     if (createdDt) {
       this.setState(() => ({ createdDt }));
     }
   };
+=======
+
+  onAmountBlur = () => {
+    const { amount } = this.state;
+    const parsedAmount = parseFloat(amount);
+    // Check if the parsed amount is a valid number
+    if (!isNaN(parsedAmount)) {
+      // Check if the amount is a whole number
+      const formattedValue = Number.isInteger(parsedAmount)
+        ? parsedAmount.toFixed(2) // Format whole number to two decimal points
+        : amount; // Keep the decimal number as is
+      this.setState(() => ({ amount: formattedValue }));
+    }
+  };
+
+  onDateChange = (createdDt: Moment | null) => {
+    if (createdDt) {
+      this.setState(() => ({ createdDt }));
+    }
+  };
+>>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
   onFocus = () => {
     // Set the date to today when the date picker is focused
     if (!this.state.createdDt) {
@@ -93,6 +115,10 @@ export default class ExpenseForm extends React.Component<
             placeholder="Amount*"
             value={this.state.amount}
             onChange={this.onAmountChange}
+<<<<<<< HEAD
+=======
+            onBlur={this.onAmountBlur}
+>>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
           />
           <LocalizationProvider dateAdapter={AdapterMoment}>
             <DatePicker
