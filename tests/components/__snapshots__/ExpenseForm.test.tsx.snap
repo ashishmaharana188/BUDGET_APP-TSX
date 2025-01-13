@@ -1,10 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-<<<<<<< HEAD
-exports[`should render ExpenseForm correctly 1`] = `
-<DocumentFragment>
-  <div>
-=======
 exports[`should render description properly with error for amount 1`] = `
 <DocumentFragment>
   <div>
@@ -32,7 +27,7 @@ exports[`should render description properly with error for amount 1`] = `
             aria-invalid="false"
             autocomplete="off"
             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input"
-            id=":r2:"
+            id=":r6:"
             inputmode="text"
             placeholder="MM/DD/YYYY"
             type="text"
@@ -100,7 +95,90 @@ exports[`should render description properly with no error 1`] = `
       <input
         placeholder="Amount*"
         type="text"
-        value="1000"
+        value="1000.00"
+      />
+      <div
+        class="MuiFormControl-root MuiTextField-root css-1b1fjlj-MuiFormControl-root-MuiTextField-root"
+      >
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-jupps9-MuiInputBase-root-MuiOutlinedInput-root"
+        >
+          <input
+            aria-invalid="false"
+            autocomplete="off"
+            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input"
+            id=":r8:"
+            inputmode="text"
+            placeholder="MM/DD/YYYY"
+            type="text"
+            value="01/13/2025"
+          />
+          <div
+            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
+          >
+            <button
+              aria-label="Choose date, selected date is Jan 13, 2025"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-oeq6yz-MuiButtonBase-root-MuiIconButton-root"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+                data-testid="CalendarIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+                />
+              </svg>
+            </button>
+          </div>
+          <fieldset
+            aria-hidden="true"
+            class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="css-w4cd9x"
+            >
+              <span
+                aria-hidden="true"
+                class="notranslate"
+              >
+                ​
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <textarea
+        placeholder="Add note"
+      />
+      <button>
+        Add Expense
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render error with expense data 1`] = `
+<DocumentFragment>
+  <div>
+    <p>
+      Please provide Description and Amount.
+    </p>
+    <form>
+      <input
+        placeholder="Description*"
+        type="text"
+        value=""
+      />
+      <input
+        placeholder="Amount*"
+        type="text"
+        value=""
       />
       <div
         class="MuiFormControl-root MuiTextField-root css-1b1fjlj-MuiFormControl-root-MuiTextField-root"
@@ -171,10 +249,6 @@ exports[`should render description properly with no error 1`] = `
 exports[`should render invalid form 1`] = `
 <DocumentFragment>
   <div>
-    <p>
-      Please provide Description and Amount.
-    </p>
->>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
     <form>
       <input
         placeholder="Description*"
@@ -200,21 +274,13 @@ exports[`should render invalid form 1`] = `
             inputmode="text"
             placeholder="MM/DD/YYYY"
             type="text"
-<<<<<<< HEAD
-            value="01/12/2025"
-=======
             value="01/13/2025"
->>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
           />
           <div
             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
           >
             <button
-<<<<<<< HEAD
-              aria-label="Choose date, selected date is Jan 12, 2025"
-=======
               aria-label="Choose date, selected date is Jan 13, 2025"
->>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-oeq6yz-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
@@ -260,36 +326,22 @@ exports[`should render invalid form 1`] = `
 </DocumentFragment>
 `;
 
-<<<<<<< HEAD
-exports[`should render one Expense correctly 1`] = `
-<DocumentFragment>
-  <div>
-=======
 exports[`should render notes properly with error 1`] = `
 <DocumentFragment>
   <div>
     <p>
       Please provide Description and Amount.
     </p>
->>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
     <form>
       <input
         placeholder="Description*"
         type="text"
-<<<<<<< HEAD
-        value="Weed"
-=======
         value=""
->>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
       />
       <input
         placeholder="Amount*"
         type="text"
-<<<<<<< HEAD
-        value="100"
-=======
         value=""
->>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
       />
       <div
         class="MuiFormControl-root MuiTextField-root css-1b1fjlj-MuiFormControl-root-MuiTextField-root"
@@ -301,29 +353,17 @@ exports[`should render notes properly with error 1`] = `
             aria-invalid="false"
             autocomplete="off"
             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input"
-<<<<<<< HEAD
-            id=":r2:"
-            inputmode="text"
-            placeholder="MM/DD/YYYY"
-            type="text"
-            value="01/01/1970"
-=======
-            id=":r6:"
+            id=":ra:"
             inputmode="text"
             placeholder="MM/DD/YYYY"
             type="text"
             value="01/13/2025"
->>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
           />
           <div
             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
           >
             <button
-<<<<<<< HEAD
-              aria-label="Choose date, selected date is Jan 1, 1970"
-=======
               aria-label="Choose date, selected date is Jan 13, 2025"
->>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-oeq6yz-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
@@ -361,11 +401,89 @@ exports[`should render notes properly with error 1`] = `
       <textarea
         placeholder="Add note"
       >
-<<<<<<< HEAD
-        high
-=======
         Testing_note
->>>>>>> 4bd873300fb8343676eddab1a2da3df39af88a53
+      </textarea>
+      <button>
+        Add Expense
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render one Expense correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <form>
+      <input
+        placeholder="Description*"
+        type="text"
+        value="Weed"
+      />
+      <input
+        placeholder="Amount*"
+        type="text"
+        value="100"
+      />
+      <div
+        class="MuiFormControl-root MuiTextField-root css-1b1fjlj-MuiFormControl-root-MuiTextField-root"
+      >
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-jupps9-MuiInputBase-root-MuiOutlinedInput-root"
+        >
+          <input
+            aria-invalid="false"
+            autocomplete="off"
+            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input"
+            id=":r2:"
+            inputmode="text"
+            placeholder="MM/DD/YYYY"
+            type="text"
+            value="01/01/1970"
+          />
+          <div
+            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
+          >
+            <button
+              aria-label="Choose date, selected date is Jan 1, 1970"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-oeq6yz-MuiButtonBase-root-MuiIconButton-root"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+                data-testid="CalendarIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+                />
+              </svg>
+            </button>
+          </div>
+          <fieldset
+            aria-hidden="true"
+            class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="css-w4cd9x"
+            >
+              <span
+                aria-hidden="true"
+                class="notranslate"
+              >
+                ​
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <textarea
+        placeholder="Add note"
+      >
+        high
       </textarea>
       <button>
         Add Expense
