@@ -9,6 +9,6 @@
     "skipLibCheck": true,
     "module": "CommonJS",
     "forceConsistentCasingInFileNames": true,
-    "types": ["vite/client", "vitest"]
+    "types": ["vite/client", "vitest", "jest", "@testing-library/jest-dom"]
   }
 }

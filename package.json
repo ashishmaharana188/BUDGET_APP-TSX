@@ -20,6 +20,7 @@
     "@mui/x-date-pickers": "^7.22.0",
     "@mui/x-date-pickers-pro": "^7.22.2",
     "@reduxjs/toolkit": "^2.2.8",
+    "@testing-library/user-event": "^14.5.2",
     "date": "^2.0.5",
     "dayjs": "^1.11.13",
     "jsdom": "^25.0.1",
