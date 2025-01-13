@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render HelpPage 1`] = `
+<DocumentFragment>
+  <div>
+    This is my help page.!
+  </div>
+</DocumentFragment>
+`;
