@@ -24,7 +24,7 @@ export interface ExpenseFormProps {
   onSubmit?: (expense: {
     id?: string;
     description: string;
-    amount: number;
+    amount: string;
     createdDt: number;
     note: string;
   }) => void;

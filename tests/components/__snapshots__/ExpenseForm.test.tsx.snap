@@ -31,13 +31,13 @@ exports[`should render description properly with error for amount 1`] = `
             inputmode="text"
             placeholder="MM/DD/YYYY"
             type="text"
-            value="01/13/2025"
+            value="01/14/2025"
           />
           <div
             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
           >
             <button
-              aria-label="Choose date, selected date is Jan 13, 2025"
+              aria-label="Choose date, selected date is Jan 14, 2025"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-oeq6yz-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
@@ -111,13 +111,13 @@ exports[`should render description properly with no error 1`] = `
             inputmode="text"
             placeholder="MM/DD/YYYY"
             type="text"
-            value="01/13/2025"
+            value="01/14/2025"
           />
           <div
             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
           >
             <button
-              aria-label="Choose date, selected date is Jan 13, 2025"
+              aria-label="Choose date, selected date is Jan 14, 2025"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-oeq6yz-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
@@ -194,13 +194,13 @@ exports[`should render error with expense data 1`] = `
             inputmode="text"
             placeholder="MM/DD/YYYY"
             type="text"
-            value="01/13/2025"
+            value="01/14/2025"
           />
           <div
             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
           >
             <button
-              aria-label="Choose date, selected date is Jan 13, 2025"
+              aria-label="Choose date, selected date is Jan 14, 2025"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-oeq6yz-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
@@ -274,13 +274,13 @@ exports[`should render invalid form 1`] = `
             inputmode="text"
             placeholder="MM/DD/YYYY"
             type="text"
-            value="01/13/2025"
+            value="01/14/2025"
           />
           <div
             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
           >
             <button
-              aria-label="Choose date, selected date is Jan 13, 2025"
+              aria-label="Choose date, selected date is Jan 14, 2025"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-oeq6yz-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
@@ -357,13 +357,13 @@ exports[`should render notes properly with error 1`] = `
             inputmode="text"
             placeholder="MM/DD/YYYY"
             type="text"
-            value="01/13/2025"
+            value="01/14/2025"
           />
           <div
             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
           >
             <button
-              aria-label="Choose date, selected date is Jan 13, 2025"
+              aria-label="Choose date, selected date is Jan 14, 2025"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-oeq6yz-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"

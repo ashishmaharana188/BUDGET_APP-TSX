@@ -1,8 +1,4 @@
-import {
-  configureStore,
-  combineReducers,
-  EnhancedStore,
-} from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import expenseReducer from "../reducers/expenses";
 import filterReducer from "../reducers/filters";
 
