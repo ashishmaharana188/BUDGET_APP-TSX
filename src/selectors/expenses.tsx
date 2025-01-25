@@ -19,9 +19,13 @@ export default (
       const textMatch = expense.description
         .toLowerCase()
         .includes(text.toLowerCase());
-      const amountMatch = amount ? expense.amount === parseFloat(amount) : true;
 
-      return startDateMatch && endDateMatch && textMatch && amountMatch;
+      const amountMatch =
+        amount.trim() !== "" ? expense.amount == parseFloat(amount) : true;
+
+      const inputMatch = textMatch || amountMatch;
+
+      return startDateMatch && endDateMatch && inputMatch;
     })
     .sort((a, b) => {
       if (sortBy === "date") {

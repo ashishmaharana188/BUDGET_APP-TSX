@@ -5,6 +5,7 @@ import {
   setStartDate,
   setTextFilter,
   sortByAmount,
+  setAmountFilter,
   sortByDate,
 } from "../actions/filters";
 import { MenuItem, Select } from "@mui/material";
@@ -13,37 +14,44 @@ import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { expenseListFilters } from "../TS_Interface/GlobalInterface";
 import moment, { Moment } from "moment";
- 
+
 class ExpenseListFilters extends React.Component<expenseListFilters> {
   state = {
     startDate: this.props.startDate ? moment(this.props.startDate) : null,
-    endDate: this.props.endDate ? moment(this.props.endDate) : null
+    endDate: this.props.endDate ? moment(this.props.endDate) : null,
+    inputValue: this.props.text || "",
   };
- 
+
   onStartDateChange = (date: Moment | null) => {
     this.setState({ startDate: date });
-    if(this.props.sortBy === 'date') {
+    if (this.props.sortBy === "date") {
       this.props.dispatch(setStartDate(date ? date.valueOf() : null));
     }
   };
 
   onEndDateChange = (date: Moment | null) => {
     this.setState({ endDate: date });
-    if(this.props.sortBy === 'date') {
+    if (this.props.sortBy === "date") {
       this.props.dispatch(setEndDate(date ? date.valueOf() : null));
     }
   };
- 
+
+  onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    this.setState({ inputValue: value });
+    this.props.dispatch(setTextFilter(value));
+    this.props.dispatch(setAmountFilter(value));
+  };
+
   render() {
     return (
       <div style={{ padding: "10px", maxWidth: "600px", margin: "10px" }}>
         <input
           type="text"
           placeholder="Search"
-          value={this.props.text}
-          onChange={(e) => {
-            this.props.dispatch(setTextFilter(e.target.value));
-          }}
+          value={this.state.inputValue}
+          onChange={this.onInputChange}
           style={{
             width: "40%",
             padding: "8px",
@@ -51,7 +59,7 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
             boxSizing: "border-box",
           }}
         />
- 
+
         <Select
           value={this.props.sortBy}
           onChange={(e) => {
@@ -89,7 +97,7 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
             Amount
           </MenuItem>
         </Select>
- 
+
         <LocalizationProvider dateAdapter={AdapterMoment}>
           <div
             style={{
@@ -103,27 +111,27 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
               label="Start Date"
               value={this.state.startDate}
               onChange={this.onStartDateChange}
-              disabled={this.props.sortBy !== 'date'}
+              disabled={this.props.sortBy !== "date"}
               slotProps={{
                 textField: {
                   variant: "outlined",
                   margin: "dense",
-                  sx: { width: "200px" }
-                }
+                  sx: { width: "200px" },
+                },
               }}
             />
             <DatePicker
               label="End Date"
               value={this.state.endDate}
               onChange={this.onEndDateChange}
-              disabled={this.props.sortBy !== 'date'}
+              disabled={this.props.sortBy !== "date"}
               minDate={this.state.startDate || undefined}
               slotProps={{
                 textField: {
                   variant: "outlined",
                   margin: "dense",
-                  sx: { width: "200px" }
-                }
+                  sx: { width: "200px" },
+                },
               }}
             />
           </div>
@@ -132,14 +140,20 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
     );
   }
 }
- 
+
 const mapStateToProps = (state: any) => {
   return {
     text: state.filters.text,
     sortBy: state.filters.sortBy,
-    startDate: state.filters.sortBy === "date" && state.filters.startDate ? moment(state.filters.startDate) : null,
-    endDate: state.filters.sortBy === "date" && state.filters.endDate ? moment(state.filters.endDate) : null,
+    startDate:
+      state.filters.sortBy === "date" && state.filters.startDate
+        ? moment(state.filters.startDate)
+        : null,
+    endDate:
+      state.filters.sortBy === "date" && state.filters.endDate
+        ? moment(state.filters.endDate)
+        : null,
   };
 };
- 
+
 export default connect(mapStateToProps)(ExpenseListFilters);
