@@ -71,6 +71,7 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
   // Handle Date submenu selection
   handleDateSortChange = (sortOrder: "asc" | "desc") => {
     this.props.dispatch(sortByDate(sortOrder));
+    this.props.dispatch(sortByAmount(sortOrder));
     this.handleDateMenuClose();
   };
 
@@ -99,7 +100,7 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
             } else if (e.target.value === "amount") {
               this.props.dispatch(setStartDate(null));
               this.props.dispatch(setEndDate(null));
-              this.props.dispatch(sortByAmount());
+              this.props.dispatch(setSortBy("amount"));
               this.setState({ startDate: null, endDate: null });
             }
           }}
@@ -128,7 +129,11 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
           >
             Date
           </MenuItem>
-          <MenuItem value="amount" sx={{ color: "black" }}>
+          <MenuItem
+            value="amount"
+            sx={{ color: "black" }}
+            onClick={this.handleDateMenuOpen}
+          >
             Amount
           </MenuItem>
         </Select>

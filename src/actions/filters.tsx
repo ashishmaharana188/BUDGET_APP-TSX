@@ -10,8 +10,9 @@ export const setAmountFilter = (amount: string = "") => ({
   amount,
 });
 // SORT_BY_AMOUNT
-export const sortByAmount = () => ({
+export const sortByAmount = (sortOrder: "asc" | "desc") => ({
   type: "SORT_BY_AMOUNT",
+  payload: { sortOrder },
 });
 export const setSortBy = (sortBy: "date" | "amount") => ({
   type: "SET_SORT_BY",

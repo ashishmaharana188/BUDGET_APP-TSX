@@ -30,6 +30,12 @@ const filterReducer = (
         ...state,
         sortBy: action.sortBy,
       };
+    case "SORT_BY_AMOUNT":
+      return {
+        ...state,
+        sortBy: "amount",
+        sortOrder: action.payload.sortOrder,
+      };
     case "SORT_BY_DATE":
       return {
         ...state,

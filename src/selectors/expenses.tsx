@@ -30,10 +30,12 @@ export default (
     .sort((a, b) => {
       if (sortBy === "date" && sortOrder === "desc") {
         return a.createdDt < b.createdDt ? 1 : -1; // Descending by date
-      } else if (sortBy === "asc") {
-        return a.createdDt > b.createdDt ? 1 : -1; // Ascending by amount
-      } else if (sortBy === "amount") {
+      } else if (sortBy === "date" && sortOrder === "asc") {
+        return a.createdDt > b.createdDt ? 1 : -1; // Ascending by date
+      } else if (sortBy === "amount" && sortOrder === "asc") {
         return a.amount - b.amount; // Ascending by amount
+      } else if (sortBy === "amount" && sortOrder === "desc") {
+        return b.amount - a.amount; // Descending by amount
       } else {
         return 0; // No sorting
       }
