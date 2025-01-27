@@ -10,10 +10,11 @@ export interface expenseReducerIntf {
 }
 export interface filterReducerIntf {
   text: string;
-  sortBy: string;
   amount: string;
+  sortBy: string;
   startDate?: Moment | null;
   endDate?: Moment | null;
+  sortOrder: string;
 }
 
 export interface expenseListFilters extends filterReducerIntf {
