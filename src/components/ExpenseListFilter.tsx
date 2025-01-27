@@ -7,6 +7,7 @@ import {
   sortByAmount,
   setAmountFilter,
   sortByDate,
+  setSortBy,
 } from "../actions/filters";
 import { Menu, MenuItem, Select } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -94,7 +95,7 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
           value={this.props.sortBy}
           onChange={(e) => {
             if (e.target.value === "date") {
-              this.props.dispatch(sortByDate("desc"));
+              this.props.dispatch(setSortBy("date"));
             } else if (e.target.value === "amount") {
               this.props.dispatch(setStartDate(null));
               this.props.dispatch(setEndDate(null));
@@ -222,7 +223,7 @@ const mapStateToProps = (state: any) => {
   return {
     text: state.filters.text,
     sortBy: state.filters.sortBy,
-
+    sortOrder: state.filters.sortOrder,
     startDate:
       state.filters.sortBy === "date" && state.filters.startDate
         ? moment(state.filters.startDate)

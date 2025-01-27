@@ -13,10 +13,14 @@ export const setAmountFilter = (amount: string = "") => ({
 export const sortByAmount = () => ({
   type: "SORT_BY_AMOUNT",
 });
+export const setSortBy = (sortBy: "date" | "amount") => ({
+  type: "SET_SORT_BY",
+  sortBy,
+});
 // SORT_BY_DATE
 export const sortByDate = (sortOrder: "asc" | "desc") => ({
   type: "SORT_BY_DATE",
-  sortOrder,
+  payload: { sortOrder },
 });
 // SET_START_DATE
 export const setStartDate = (startDate?: number | null) => ({
