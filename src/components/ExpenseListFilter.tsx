@@ -70,8 +70,12 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
 
   // Handle Date submenu selection
   handleDateSortChange = (sortOrder: "asc" | "desc") => {
-    this.props.dispatch(sortByDate(sortOrder));
-    this.props.dispatch(sortByAmount(sortOrder));
+    console.log("Sorting by:", this.props.sortBy, "with order:", sortOrder); // Debugging
+    if (this.props.sortBy === "date") {
+      this.props.dispatch(sortByDate(sortOrder)); // Dispatch sortByDate for date sorting
+    } else if (this.props.sortBy === "amount") {
+      this.props.dispatch(sortByAmount(sortOrder)); // Dispatch sortByAmount for amount sorting
+    }
     this.handleDateMenuClose();
   };
 
