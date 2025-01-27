@@ -8,7 +8,7 @@ import {
   setAmountFilter,
   sortByDate,
 } from "../actions/filters";
-import { Button, Menu, MenuItem, Select } from "@mui/material";
+import { Menu, MenuItem, Select } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -222,7 +222,7 @@ const mapStateToProps = (state: any) => {
   return {
     text: state.filters.text,
     sortBy: state.filters.sortBy,
-    sortOrder: state.filters.sortOrder,
+
     startDate:
       state.filters.sortBy === "date" && state.filters.startDate
         ? moment(state.filters.startDate)

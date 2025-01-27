@@ -11,7 +11,6 @@ export interface expenseReducerIntf {
 export interface filterReducerIntf {
   text: string;
   sortBy: string;
-  sortOrder: string;
   amount: string;
   startDate?: Moment | null;
   endDate?: Moment | null;
