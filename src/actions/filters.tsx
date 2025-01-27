@@ -14,8 +14,9 @@ export const sortByAmount = () => ({
   type: "SORT_BY_AMOUNT",
 });
 // SORT_BY_DATE
-export const sortByDate = () => ({
+export const sortByDate = (sortOrder: "asc" | "desc") => ({
   type: "SORT_BY_DATE",
+  sortOrder,
 });
 // SET_START_DATE
 export const setStartDate = (startDate?: number | null) => ({
@@ -32,4 +33,7 @@ export const setEndDate = (endDate?: number | null) => ({
     endDate !== null && endDate !== undefined
       ? moment(endDate).valueOf()
       : null,
+});
+export const resetFilters = () => ({
+  type: "RESET_FILTERS",
 });

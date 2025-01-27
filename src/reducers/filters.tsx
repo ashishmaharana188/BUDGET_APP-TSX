@@ -5,6 +5,7 @@ const filterReducerDefaultState = {
   text: "",
   sortBy: "",
   amount: "",
+  sortOrder: "",
   startDate: null,
   endDate: null,
 };
@@ -24,15 +25,11 @@ const filterReducer = (
         ...state,
         amount: action.amount,
       };
-    case "SORT_BY_AMOUNT":
-      return {
-        ...state,
-        sortBy: "amount",
-      };
     case "SORT_BY_DATE":
       return {
         ...state,
         sortBy: "date",
+        sortOrder: action.sortOrder,
       };
     case "SET_START_DATE":
       return {
@@ -43,6 +40,10 @@ const filterReducer = (
       return {
         ...state,
         endDate: action.endDate,
+      };
+    case "RESET_FILTERS":
+      return {
+        ...filterReducerDefaultState,
       };
     default:
       return state;

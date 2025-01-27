@@ -16,6 +16,7 @@
     "@emotion/styled": "^11.13.0",
     "@fontsource/poppins": "^5.1.0",
     "@jridgewell/sourcemap-codec": "^1.5.0",
+    "@mui/icons-material": "^6.4.1",
     "@mui/material": "^6.1.1",
     "@mui/x-date-pickers": "^7.22.0",
     "@mui/x-date-pickers-pro": "^7.22.2",

@@ -4,7 +4,7 @@ import moment from "moment";
 
 export default (
   expenses: expenseReducerIntf[],
-  { text, amount, sortBy, startDate, endDate }: filterReducerIntf
+  { text, amount, sortBy, startDate, endDate, sortOrder }: filterReducerIntf
 ) => {
   return expenses
     .filter((expense) => {
@@ -28,12 +28,14 @@ export default (
       return startDateMatch && endDateMatch && inputMatch;
     })
     .sort((a, b) => {
-      if (sortBy === "date") {
-        return a.createdDt < b.createdDt ? 1 : -1;
+      if (sortBy === "date" && sortOrder === "desc") {
+        return a.createdDt < b.createdDt ? 1 : -1; // Descending by date
+      } else if (sortBy === "asc") {
+        return a.createdDt > b.createdDt ? 1 : -1; // Ascending by amount
       } else if (sortBy === "amount") {
-        return a.amount < b.amount ? 1 : -1;
+        return a.amount - b.amount; // Ascending by amount
       } else {
-        return 0;
+        return 0; // No sorting
       }
     });
 };

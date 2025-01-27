@@ -7,37 +7,30 @@ import { Provider } from "react-redux";
 import { AppRouter } from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
 import { addExpense } from "./actions/expenses";
-import { setTextFilter } from "./actions/filters";
-import getVisibleExpense from './selectors/expenses'
-
+import getVisibleExpense from "./selectors/expenses";
 
 const store = configureStore();
 
-store.dispatch(addExpense({description: 'Water Bill', amount: 5000}))
-store.dispatch(addExpense({description: 'Gas Bill', amount: 50000}))
+store.dispatch(addExpense({ description: "Water Bill", amount: 5000 }));
+store.dispatch(addExpense({ description: "Gas Bill", amount: 50000 }));
 
 //setTimeout(() => {
 //  store.dispatch(setTextFilter('bill'))
 //}, 3000);
 
 const state = store.getState();
-const visibleData = getVisibleExpense(state.expenses, state.filters)
+const visibleData = getVisibleExpense(state.expenses, state.filters);
 
 console.log(visibleData);
 
-const jsx = (
-  <AppRouter/>
-);
+const jsx = <AppRouter />;
 
 function App() {
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       {globalStyles}
-      <Provider store={store}>
-        {jsx}
-      </Provider>
+      <Provider store={store}>{jsx}</Provider>
     </ThemeProvider>
   );
 }
