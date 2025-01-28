@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
   setEndDate,
   setStartDate,
@@ -152,11 +152,43 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
         >
           <MenuItem
             onClick={() => this.handleDateSortChange("asc")}
-            sx={{ color: "black" }}
+            sx={{
+              backgroundColor:
+                this.props.sortOrder === "asc" ? "#e9d9b9" : "inherit",
+              "&:hover": {
+                backgroundColor:
+                  this.props.sortOrder === "asc" ? "#e9d9b9" : "#f0f0f0",
+                outline: "none", // Custom hover background color
+              },
+              "&.Mui-focused": {
+                // Prevent default focused state styling (like the black tint)
+                backgroundColor:
+                  this.props.sortOrder === "asc" ? "#e9d9b9" : "#f0f0f0",
+                outline: "none",
+              },
+            }}
+            autoFocus={false}
           >
             Ascending
           </MenuItem>
-          <MenuItem onClick={() => this.handleDateSortChange("desc")}>
+          <MenuItem
+            onClick={() => this.handleDateSortChange("desc")}
+            sx={{
+              backgroundColor:
+                this.props.sortOrder === "desc" ? "#e9d9b9" : "inherit",
+              "&:hover": {
+                backgroundColor:
+                  this.props.sortOrder === "desc" ? "#e9d9b9" : "#f0f0f0",
+                outline: "none", // Custom hover background color
+              },
+              "&.Mui-focused": {
+                // Prevent default focused state styling (like the black tint)
+                backgroundColor:
+                  this.props.sortOrder === "desc" ? "#e9d9b9" : "#f0f0f0",
+                outline: "none",
+              },
+            }}
+          >
             Descending
           </MenuItem>
         </Menu>
