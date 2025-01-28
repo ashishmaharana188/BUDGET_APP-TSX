@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import {
   setEndDate,
   setStartDate,
@@ -57,6 +57,15 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
     this.setState({ endDate: null });
     this.props.dispatch(setEndDate(null));
   };
+  removeSorting = () => {
+    if (this.props.sortBy && !this.props.sortOrder) {
+      this.props.dispatch(setSortBy(null));
+    }
+    if (this.props.sortOrder) {
+      this.props.dispatch(sortByDate(null));
+      this.props.dispatch(sortByAmount(null));
+    }
+  };
 
   // Open Date submenu
   handleDateMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -97,15 +106,20 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
         />
 
         <Select
-          value={this.props.sortBy}
+          value={this.props.sortBy || ""}
           onChange={(e) => {
-            if (e.target.value === "date") {
-              this.props.dispatch(setSortBy("date"));
-            } else if (e.target.value === "amount") {
-              this.props.dispatch(setStartDate(null));
-              this.props.dispatch(setEndDate(null));
-              this.props.dispatch(setSortBy("amount"));
-              this.setState({ startDate: null, endDate: null });
+            const value = e.target.value;
+            if (value === "none") {
+              this.props.dispatch(setSortBy(null));
+            } else {
+              if (value === "date") {
+                this.props.dispatch(setSortBy("date"));
+              } else if (value === "amount") {
+                this.props.dispatch(setStartDate(null));
+                this.props.dispatch(setEndDate(null));
+                this.props.dispatch(setSortBy("amount"));
+                this.setState({ startDate: null, endDate: null });
+              }
             }
           }}
           displayEmpty
@@ -132,6 +146,19 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
             onClick={this.handleDateMenuOpen}
           >
             Date
+            <IconButton
+              onClick={(event) => {
+                event.stopPropagation(); // Prevents click event from propagating to parent elements
+                this.removeSorting();
+              }}
+              size="small"
+              sx={{
+                marginLeft: "10px",
+                color: "black",
+              }}
+            >
+              <DeleteIcon />
+            </IconButton>
           </MenuItem>
           <MenuItem
             value="amount"
@@ -139,6 +166,19 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
             onClick={this.handleDateMenuOpen}
           >
             Amount
+            <IconButton
+              onClick={(event) => {
+                event.stopPropagation(); // Prevents click event from propagating to parent elements
+                this.removeSorting();
+              }}
+              size="small"
+              sx={{
+                marginLeft: "10px",
+                color: "black",
+              }}
+            >
+              <DeleteIcon />
+            </IconButton>
           </MenuItem>
         </Select>
 
@@ -160,16 +200,27 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
                   this.props.sortOrder === "asc" ? "#e9d9b9" : "#f0f0f0",
                 outline: "none", // Custom hover background color
               },
-              "&.Mui-focused": {
-                // Prevent default focused state styling (like the black tint)
+              "&:focus": {
                 backgroundColor:
                   this.props.sortOrder === "asc" ? "#e9d9b9" : "#f0f0f0",
-                outline: "none",
               },
             }}
             autoFocus={false}
           >
             Ascending
+            <IconButton
+              onClick={(event) => {
+                event.stopPropagation(); // Prevents click event from propagating to parent elements
+                this.removeSorting();
+              }}
+              size="small"
+              sx={{
+                marginLeft: "10px",
+                color: "black",
+              }}
+            >
+              <DeleteIcon />
+            </IconButton>
           </MenuItem>
           <MenuItem
             onClick={() => this.handleDateSortChange("desc")}
@@ -181,15 +232,26 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
                   this.props.sortOrder === "desc" ? "#e9d9b9" : "#f0f0f0",
                 outline: "none", // Custom hover background color
               },
-              "&.Mui-focused": {
-                // Prevent default focused state styling (like the black tint)
+              "&:focus": {
                 backgroundColor:
-                  this.props.sortOrder === "desc" ? "#e9d9b9" : "#f0f0f0",
-                outline: "none",
+                  this.props.sortOrder === "asc" ? "#e9d9b9" : "#f0f0f0",
               },
             }}
           >
             Descending
+            <IconButton
+              onClick={(event) => {
+                event.stopPropagation(); // Prevents click event from propagating to parent elements
+                this.removeSorting();
+              }}
+              size="small"
+              sx={{
+                marginLeft: "10px",
+                color: "black",
+              }}
+            >
+              <DeleteIcon />
+            </IconButton>
           </MenuItem>
         </Menu>
 
