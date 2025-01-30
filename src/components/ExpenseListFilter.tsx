@@ -59,6 +59,7 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
   };
   removeSorting = () => {
     this.setState({ dateMenuAnchorEl: null }, () => {
+      //jan30 patch
       if (this.props.sortBy && !this.props.sortOrder) {
         this.props.dispatch(setSortBy(null));
       }
