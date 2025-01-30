@@ -58,13 +58,15 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
     this.props.dispatch(setEndDate(null));
   };
   removeSorting = () => {
-    if (this.props.sortBy && !this.props.sortOrder) {
-      this.props.dispatch(setSortBy(null));
-    }
-    if (this.props.sortOrder) {
-      this.props.dispatch(sortByDate(null));
-      this.props.dispatch(sortByAmount(null));
-    }
+    this.setState({ dateMenuAnchorEl: null }, () => {
+      if (this.props.sortBy && !this.props.sortOrder) {
+        this.props.dispatch(setSortBy(null));
+      }
+      if (this.props.sortOrder) {
+        this.props.dispatch(sortByDate(null));
+        this.props.dispatch(sortByAmount(null));
+      }
+    });
   };
 
   // Open Date submenu
