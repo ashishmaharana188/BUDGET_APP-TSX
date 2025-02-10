@@ -58,6 +58,18 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
     this.setState({ endDate: null });
     this.props.dispatch(setEndDate(null));
   };
+  removeSorting = () => {
+    this.setState({ dateMenuAnchorEl: null }, () => {
+      //jan30 patch
+      if (this.props.sortBy && !this.props.sortOrder) {
+        this.props.dispatch(setSortBy(null));
+      }
+      if (this.props.sortOrder) {
+        this.props.dispatch(sortByDate(null));
+        this.props.dispatch(sortByAmount(null));
+      }
+    });
+  };
 
   // Open Date submenu
   handleDateMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -71,7 +83,6 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
 
   // Handle Date submenu selection
   handleDateSortChange = (sortOrder: "asc" | "desc") => {
-    console.log("Sorting by:", this.props.sortBy, "with order:", sortOrder); // Debugging
     if (this.props.sortBy === "date") {
       this.props.dispatch(sortByDate(sortOrder)); // Dispatch sortByDate for date sorting
     } else if (this.props.sortBy === "amount") {
@@ -98,15 +109,20 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
         />
 
         <Select
-          value={this.props.sortBy}
+          value={this.props.sortBy || ""}
           onChange={(e) => {
-            if (e.target.value === "date") {
-              this.props.dispatch(setSortBy("date"));
-            } else if (e.target.value === "amount") {
-              this.props.dispatch(setStartDate(null));
-              this.props.dispatch(setEndDate(null));
-              this.props.dispatch(setSortBy("amount"));
-              this.setState({ startDate: null, endDate: null });
+            const value = e.target.value;
+            if (value === "none") {
+              this.props.dispatch(setSortBy(null));
+            } else {
+              if (value === "date") {
+                this.props.dispatch(setSortBy("date"));
+              } else if (value === "amount") {
+                this.props.dispatch(setStartDate(null));
+                this.props.dispatch(setEndDate(null));
+                this.props.dispatch(setSortBy("amount"));
+                this.setState({ startDate: null, endDate: null });
+              }
             }
           }}
           displayEmpty
@@ -133,6 +149,19 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
             onClick={this.handleDateMenuOpen}
           >
             Date
+            <IconButton
+              onClick={(event) => {
+                event.stopPropagation(); // Prevents click event from propagating to parent elements
+                this.removeSorting();
+              }}
+              size="small"
+              sx={{
+                marginLeft: "10px",
+                color: "black",
+              }}
+            >
+              <DeleteIcon />
+            </IconButton>
           </MenuItem>
           <MenuItem
             value="amount"
@@ -140,6 +169,19 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
             onClick={this.handleDateMenuOpen}
           >
             Amount
+            <IconButton
+              onClick={(event) => {
+                event.stopPropagation(); // Prevents click event from propagating to parent elements
+                this.removeSorting();
+              }}
+              size="small"
+              sx={{
+                marginLeft: "10px",
+                color: "black",
+              }}
+            >
+              <DeleteIcon />
+            </IconButton>
           </MenuItem>
         </Select>
 
@@ -154,21 +196,76 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
           <MenuItem
             onClick={() => this.handleDateSortChange("asc")}
             sx={{
+<<<<<<< HEAD
               color: "black",
               backgroundColor:
                 this.props.sortOrder === "asc" ? "#5B5353" : "transparent",
             }}
+=======
+              backgroundColor:
+                this.props.sortOrder === "asc" ? "#e9d9b9" : "inherit",
+              "&:hover": {
+                backgroundColor:
+                  this.props.sortOrder === "asc" ? "#e9d9b9" : "#f0f0f0",
+                outline: "none", // Custom hover background color
+              },
+              "&:focus": {
+                backgroundColor:
+                  this.props.sortOrder === "asc" ? "#e9d9b9" : "#f0f0f0",
+              },
+            }}
+            autoFocus={false}
+>>>>>>> af58a0377c3e68b6677decf25083e0e7d6de38cc
           >
             Ascending
+            <IconButton
+              onClick={(event) => {
+                event.stopPropagation(); // Prevents click event from propagating to parent elements
+                this.removeSorting();
+              }}
+              size="small"
+              sx={{
+                marginLeft: "10px",
+                color: "black",
+              }}
+            >
+              <DeleteIcon />
+            </IconButton>
           </MenuItem>
           <MenuItem
             onClick={() => this.handleDateSortChange("desc")}
             sx={{
               backgroundColor:
+<<<<<<< HEAD
                 this.props.sortOrder === "asc" ? "#5B5353" : "transparent",
+=======
+                this.props.sortOrder === "desc" ? "#e9d9b9" : "inherit",
+              "&:hover": {
+                backgroundColor:
+                  this.props.sortOrder === "desc" ? "#e9d9b9" : "#f0f0f0",
+                outline: "none", // Custom hover background color
+              },
+              "&:focus": {
+                backgroundColor:
+                  this.props.sortOrder === "asc" ? "#e9d9b9" : "#f0f0f0",
+              },
+>>>>>>> af58a0377c3e68b6677decf25083e0e7d6de38cc
             }}
           >
             Descending
+            <IconButton
+              onClick={(event) => {
+                event.stopPropagation(); // Prevents click event from propagating to parent elements
+                this.removeSorting();
+              }}
+              size="small"
+              sx={{
+                marginLeft: "10px",
+                color: "black",
+              }}
+            >
+              <DeleteIcon />
+            </IconButton>
           </MenuItem>
         </Menu>
 

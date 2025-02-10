@@ -1,16 +1,7 @@
-/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { defineConfig as vitestConfig } from "vitest/config";
 
 export default defineConfig({
   plugins: [react()],
-  build: {
-    sourcemap: true,
-  },
-  test: {
-    // Vitest configuration
-    globals: true,
-    environment: "jsdom",
-    silent: true,
-  },
 });

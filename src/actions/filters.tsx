@@ -10,16 +10,16 @@ export const setAmountFilter = (amount: string = "") => ({
   amount,
 });
 // SORT_BY_AMOUNT
-export const sortByAmount = (sortOrder: "asc" | "desc") => ({
+export const sortByAmount = (sortOrder: "asc" | "desc" | null) => ({
   type: "SORT_BY_AMOUNT",
   payload: { sortOrder },
 });
-export const setSortBy = (sortBy: "date" | "amount") => ({
+export const setSortBy = (sortBy: "date" | "amount" | null) => ({
   type: "SET_SORT_BY",
   sortBy,
 });
 // SORT_BY_DATE
-export const sortByDate = (sortOrder: "asc" | "desc") => ({
+export const sortByDate = (sortOrder: "asc" | "desc" | null) => ({
   type: "SORT_BY_DATE",
   payload: { sortOrder },
 });

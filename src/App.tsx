@@ -15,21 +15,35 @@ store.dispatch(
   addExpense({
     description: "Water Bill",
     amount: 5000,
+<<<<<<< HEAD
     createdDt: 1737975065051,
+=======
+    createdDt: 1738079643538,
+>>>>>>> af58a0377c3e68b6677decf25083e0e7d6de38cc
   })
 );
 store.dispatch(
   addExpense({
     description: "Gas Bill",
     amount: 50000,
+<<<<<<< HEAD
     createdDt: 1738147865051,
+=======
+    createdDt: 1737993243538,
+>>>>>>> af58a0377c3e68b6677decf25083e0e7d6de38cc
   })
 );
 store.dispatch(
   addExpense({
+<<<<<<< HEAD
     description: "Games Bill",
     amount: 70000,
     createdDt: 1738061465051,
+=======
+    description: "Cable Bill",
+    amount: 50000,
+    createdDt: 1738166043538,
+>>>>>>> af58a0377c3e68b6677decf25083e0e7d6de38cc
   })
 );
 

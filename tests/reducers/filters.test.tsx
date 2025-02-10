@@ -7,13 +7,18 @@ test("Should setup default filter value", () => {
   expect(state).toEqual({
     text: "",
     sortBy: "",
+    amount: "",
+    sortOrder: "",
     startDate: null,
     endDate: null,
   });
 });
 
 test("Should setup sortBy to amount", () => {
-  const state = filtersReducer(undefined, { type: "SORT_BY_AMOUNT" });
+  const state = filtersReducer(undefined, {
+    type: "SORT_BY_AMOUNT",
+    payload: { sortOrder: "asc" },
+  });
   expect(state.sortBy).toBe("amount");
 });
 
@@ -21,6 +26,8 @@ test("Should setup sortBy to date", () => {
   const currentState = {
     text: "",
     sortBy: "date",
+    amount: "",
+    sortOrder: "",
     startDate: undefined,
     endDate: undefined,
   };
