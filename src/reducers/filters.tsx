@@ -4,6 +4,8 @@ import { filterReducerIntf } from "../TS_Interface/GlobalInterface";
 const filterReducerDefaultState = {
   text: "",
   sortBy: "",
+  amount: "",
+  sortOrder: "",
   startDate: null,
   endDate: null,
 };
@@ -18,15 +20,27 @@ const filterReducer = (
         ...state,
         text: action.text,
       };
+    case "SET_AMOUNT_FIELD": // New action type for amount
+      return {
+        ...state,
+        amount: action.amount,
+      };
+    case "SET_SORT_BY":
+      return {
+        ...state,
+        sortBy: action.sortBy,
+      };
     case "SORT_BY_AMOUNT":
       return {
         ...state,
         sortBy: "amount",
+        sortOrder: action.payload.sortOrder,
       };
     case "SORT_BY_DATE":
       return {
         ...state,
         sortBy: "date",
+        sortOrder: action.payload.sortOrder,
       };
     case "SET_START_DATE":
       return {
@@ -37,6 +51,10 @@ const filterReducer = (
       return {
         ...state,
         endDate: action.endDate,
+      };
+    case "RESET_FILTERS":
+      return {
+        ...filterReducerDefaultState,
       };
     default:
       return state;

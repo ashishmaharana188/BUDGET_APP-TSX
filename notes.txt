@@ -1,1 +1,7 @@
-add option to input title and subtitle, now its showing default values.
+add option show notes if any when hovering over the expense description
+amount search or sortby is not implemented properly(Done)
+write implementation for specific erros for each variable. Now the error is "Please provide Description and Amount"(Done)
+add option to sort by amount/date asc and desc dropdown(Done)
+add functionality to sort feature(reseting the list to default state) add a delete or rest button to the sort button along with(Done)
+add UI confirmation for current sortOrder selection. Add option to remove the current selection.(Done)
+Add functionality to retain sortOrder for both sortBy options and sort the list as per the requirement.(Done)
