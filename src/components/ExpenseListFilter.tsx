@@ -59,13 +59,21 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
   };
   removeSorting = () => {
     this.setState({ dateMenuAnchorEl: null }, () => {
-      //jan30 patch
-      if (this.props.sortBy && !this.props.sortOrder) {
-        this.props.dispatch(setSortBy(null));
-      }
       if (this.props.sortOrder) {
+        // Clear sorting order but retain the correct sortBy value
         this.props.dispatch(sortByDate(null));
         this.props.dispatch(sortByAmount(null));
+
+        if (this.props.sortBy === "date") {
+          this.props.dispatch(setSortBy("date")); // Explicitly set back to date
+        } else if (this.props.sortBy === "amount") {
+          this.props.dispatch(setSortBy("amount")); // Explicitly set back to amount
+        }
+      } else {
+        if (this.props.sortBy) {
+          // If no sortOrder, then completely reset sortBy
+          this.props.dispatch(setSortBy(null));
+        }
       }
     });
   };
@@ -194,18 +202,16 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
         >
           <MenuItem
             onClick={() => this.handleDateSortChange("asc")}
+            selected={this.props.sortOrder === "asc"}
             sx={{
               color: "black",
               backgroundColor:
-                this.props.sortOrder === "asc" ? "#e9d9b9" : "inherit",
-              "&:hover": {
+                this.props.sortOrder === "asc" ? "#e9d9b9" : "transparent",
+              "&:hover, &:focus": {
                 backgroundColor:
-                  this.props.sortOrder === "asc" ? "#e9d9b9" : "#f0f0f0",
-                outline: "none", // Custom hover background color
-              },
-              "&:focus": {
-                backgroundColor:
-                  this.props.sortOrder === "asc" ? "#e9d9b9" : "#f0f0f0",
+                  this.props.sortOrder === "asc"
+                    ? "#e9d9b9 !important"
+                    : "#f0f0f0",
               },
             }}
             autoFocus={false}
@@ -227,22 +233,21 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
           </MenuItem>
           <MenuItem
             onClick={() => this.handleDateSortChange("desc")}
+            selected={this.props.sortOrder === "desc"}
             sx={{
               backgroundColor:
-                this.props.sortOrder === "asc" ? "#5B5353" : "transparent",
+                this.props.sortOrder === "desc" ? "#e9d9b9" : "transparent",
 
-              "&:hover": {
+              "&:hover, &:focus": {
                 backgroundColor:
-                  this.props.sortOrder === "desc" ? "#e9d9b9" : "#f0f0f0",
+                  this.props.sortOrder === "desc"
+                    ? "#e9d9b9 !important"
+                    : "#f0f0f0",
 
                 outline: "none", // Custom hover background color
               },
-
-              "&:focus": {
-                backgroundColor:
-                  this.props.sortOrder === "asc" ? "#e9d9b9" : "#f0f0f0",
-              },
             }}
+            autoFocus={false}
           >
             Descending
             <IconButton
