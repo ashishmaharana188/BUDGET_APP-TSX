@@ -9,24 +9,28 @@ exports[`should render Header correctly 1`] = `
     <a
       aria-current="page"
       class="nav-is-active"
+      data-discover="true"
       href="/"
     >
       DashBoard
     </a>
     <a
       class=""
+      data-discover="true"
       href="/create"
     >
       Create Expense
     </a>
     <a
       class=""
+      data-discover="true"
       href="/edit"
     >
       Edit Expense
     </a>
     <a
       class=""
+      data-discover="true"
       href="/help"
     >
       Help
