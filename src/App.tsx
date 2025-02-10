@@ -11,8 +11,27 @@ import getVisibleExpense from "./selectors/expenses";
 
 const store = configureStore();
 
-store.dispatch(addExpense({ description: "Water Bill", amount: 5000 }));
-store.dispatch(addExpense({ description: "Gas Bill", amount: 50000 }));
+store.dispatch(
+  addExpense({
+    description: "Water Bill",
+    amount: 5000,
+    createdDt: 1737975065051,
+  })
+);
+store.dispatch(
+  addExpense({
+    description: "Gas Bill",
+    amount: 50000,
+    createdDt: 1738147865051,
+  })
+);
+store.dispatch(
+  addExpense({
+    description: "Games Bill",
+    amount: 70000,
+    createdDt: 1738061465051,
+  })
+);
 
 //setTimeout(() => {
 //  store.dispatch(setTextFilter('bill'))

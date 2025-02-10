@@ -17,6 +17,7 @@ import { expenseListFilters } from "../TS_Interface/GlobalInterface";
 import { IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import moment, { Moment } from "moment";
+import { colourPalette } from "../themes/typography/base";
 
 class ExpenseListFilters extends React.Component<expenseListFilters> {
   state = {
@@ -152,11 +153,21 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
         >
           <MenuItem
             onClick={() => this.handleDateSortChange("asc")}
-            sx={{ color: "black" }}
+            sx={{
+              color: "black",
+              backgroundColor:
+                this.props.sortOrder === "asc" ? "#5B5353" : "transparent",
+            }}
           >
             Ascending
           </MenuItem>
-          <MenuItem onClick={() => this.handleDateSortChange("desc")}>
+          <MenuItem
+            onClick={() => this.handleDateSortChange("desc")}
+            sx={{
+              backgroundColor:
+                this.props.sortOrder === "asc" ? "#5B5353" : "transparent",
+            }}
+          >
             Descending
           </MenuItem>
         </Menu>
