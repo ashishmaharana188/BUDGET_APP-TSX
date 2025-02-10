@@ -1,29 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ESNext", // Use the latest ES version for modern browser compatibility.
-    "useDefineForClassFields": true, // To enable `define` for class fields to match the standard.
-    "lib": ["ES2020", "DOM", "DOM.Iterable"], // Include modern JavaScript and DOM types.
-    "module": "ESNext", // Use ESNext modules for native support in Bun.
-    "skipLibCheck": true, // Skip library checks to speed up compilation.
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
 
-    /* Bundler Mode */
-    "moduleResolution": "bundler", // Use Bun's efficient module resolution.
-    "allowImportingTsExtensions": true, // Allows `.ts` extensions in imports.
-    "isolatedModules": true, // Optimizes Bun for working with isolated modules.
-    "moduleDetection": "force", // Force module detection for all files.
-    "noEmit": true, // Bun will handle emitting files, so TypeScript doesn’t need to.
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
 
-    /* JSX/React Settings */
-    "jsx": "react-jsx", // For React JSX support.
-
-    /* Linting & Code Quality */
-    "strict": true, // Enable strict type-checking.
-    "noUnusedLocals": true, // Warning on unused local variables.
-    "noUnusedParameters": true, // Warning on unused parameters.
-    "noFallthroughCasesInSwitch": true, // Avoid fall-through in switch cases.
-
-    /* Bun-Specific Settings */
-    "types": ["vite/client", "bun"] // Include Bun and Vite-specific types.
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"] // Include all source files in the `src` directory.
+  "include": ["src"]
 }

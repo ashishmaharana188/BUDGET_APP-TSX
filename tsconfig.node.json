@@ -1,25 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ES2022", // Use a modern version that aligns with current Node.js versions.
-    "lib": ["ES2023"], // Include latest JavaScript features.
-    "module": "ESNext", // Use ESNext modules for better compatibility with Bun.
-    "skipLibCheck": true, // Skip library checks for faster compilation.
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "skipLibCheck": true,
 
-    /* Bundler Mode */
-    "moduleResolution": "bundler", // Optimize Bun's module resolution for Node.js.
-    "allowImportingTsExtensions": true, // Allow importing `.ts` extensions in server code.
-    "isolatedModules": true, // Ensures isolated modules for Bun compatibility.
-    "moduleDetection": "force", // Force module detection.
-    "noEmit": true, // Prevent TypeScript from emitting files; Bun will handle that.
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
 
-    /* Linting & Code Quality */
-    "strict": true, // Enable strict type-checking for better safety.
-    "noUnusedLocals": true, // Warn on unused local variables.
-    "noUnusedParameters": true, // Warn on unused parameters.
-    "noFallthroughCasesInSwitch": true, // Prevent fall-through cases in switch statements.
-
-    /* Node.js Configuration */
-    "types": ["node", "bun"] // Include Node.js and Bun types.
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["server/**/*"] // Include your server-side TypeScript files (adjust path as needed).
+  "include": ["vite.config.ts"]
 }

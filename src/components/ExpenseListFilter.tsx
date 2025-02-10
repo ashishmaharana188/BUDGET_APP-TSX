@@ -17,7 +17,6 @@ import { expenseListFilters } from "../TS_Interface/GlobalInterface";
 import { IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import moment, { Moment } from "moment";
-import { colourPalette } from "../themes/typography/base";
 
 class ExpenseListFilters extends React.Component<expenseListFilters> {
   state = {
@@ -196,12 +195,7 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
           <MenuItem
             onClick={() => this.handleDateSortChange("asc")}
             sx={{
-<<<<<<< HEAD
               color: "black",
-              backgroundColor:
-                this.props.sortOrder === "asc" ? "#5B5353" : "transparent",
-            }}
-=======
               backgroundColor:
                 this.props.sortOrder === "asc" ? "#e9d9b9" : "inherit",
               "&:hover": {
@@ -215,7 +209,6 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
               },
             }}
             autoFocus={false}
->>>>>>> af58a0377c3e68b6677decf25083e0e7d6de38cc
           >
             Ascending
             <IconButton
@@ -236,20 +229,19 @@ class ExpenseListFilters extends React.Component<expenseListFilters> {
             onClick={() => this.handleDateSortChange("desc")}
             sx={{
               backgroundColor:
-<<<<<<< HEAD
                 this.props.sortOrder === "asc" ? "#5B5353" : "transparent",
-=======
-                this.props.sortOrder === "desc" ? "#e9d9b9" : "inherit",
+
               "&:hover": {
                 backgroundColor:
                   this.props.sortOrder === "desc" ? "#e9d9b9" : "#f0f0f0",
+
                 outline: "none", // Custom hover background color
               },
+
               "&:focus": {
                 backgroundColor:
                   this.props.sortOrder === "asc" ? "#e9d9b9" : "#f0f0f0",
               },
->>>>>>> af58a0377c3e68b6677decf25083e0e7d6de38cc
             }}
           >
             Descending
