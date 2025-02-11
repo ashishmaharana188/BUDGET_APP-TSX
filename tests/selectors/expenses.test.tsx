@@ -30,6 +30,8 @@ test("should filter by text value", () => {
   const filters = {
     text: "c",
     sortBy: "date",
+    amount: "",
+    sortOrder: "",
     startDate: undefined,
     endDate: undefined,
   };
@@ -40,6 +42,8 @@ test("should filter by startDate", () => {
   const filters = {
     text: "",
     sortBy: "date",
+    amount: "",
+    sortOrder: "",
     startDate: moment(0),
     endDate: undefined,
   };
@@ -50,6 +54,8 @@ test("should filter by endDate", () => {
   const filters = {
     text: "",
     sortBy: "date",
+    amount: "",
+    sortOrder: "",
     startDate: undefined,
     endDate: moment(0).add(2, "days"),
   };
@@ -60,6 +66,8 @@ test("should filter by date", () => {
   const filters = {
     text: "",
     sortBy: "date",
+    amount: "",
+    sortOrder: "",
     startDate: undefined,
     endDate: undefined,
   };
@@ -70,6 +78,8 @@ test("should filter by amount", () => {
   const filters = {
     text: "",
     sortBy: "amount",
+    amount: "",
+    sortOrder: "",
     startDate: undefined,
     endDate: undefined,
   };
