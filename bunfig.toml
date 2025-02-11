@@ -1,0 +1,4 @@
+[test]
+environment = "jsdom"  # or "node" for a Node.js environment
+test_dir = "tests"      # Directory where your test files are located
+test_pattern = "**/*.test.tsx"

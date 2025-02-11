@@ -5,6 +5,7 @@ exports[`should render notFoundPage 1`] = `
   <div>
     404! 
     <a
+      data-discover="true"
       href="/"
     >
        Go Home
