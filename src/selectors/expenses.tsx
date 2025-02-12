@@ -6,6 +6,7 @@ export default (
   expenses: expenseReducerIntf[],
   { text, amount, sortBy, startDate, endDate, sortOrder }: filterReducerIntf
 ) => {
+  console.log("Filtered expenses:", expenses);
   return expenses
     .filter((expense) => {
       const createdDtMoment = moment(expense.createdDt);
@@ -27,15 +28,19 @@ export default (
       return startDateMatch && endDateMatch && (textMatch || amountMatch);*/
       const isNumber = !isNaN(parseFloat(text)) && isFinite(Number(text));
       if (isNumber) {
-        return (
-          startDateMatch && endDateMatch && expense.amount === parseFloat(text)
+        const amountMatch = expense.amount === parseFloat(text);
+        console.log(
+          `Checking expense (amount filter): ID=${expense.id}, Amount=${expense.amount}, Match=${amountMatch}`
         );
+        return startDateMatch && endDateMatch && amountMatch;
       } else {
-        return (
-          startDateMatch &&
-          endDateMatch &&
-          expense.description.toLowerCase().includes(text.toLowerCase())
+        const textMatch = expense.description
+          .toLowerCase()
+          .includes(text.toLowerCase());
+        console.log(
+          `Checking expense (text filter): ID=${expense.id}, Description="${expense.description}", Match=${textMatch}`
         );
+        return startDateMatch && endDateMatch && textMatch;
       }
     })
     .sort((a, b) => {
