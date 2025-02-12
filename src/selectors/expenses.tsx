@@ -16,16 +16,27 @@ export default (
       const endDateMatch = endDate
         ? moment(endDate).isSameOrAfter(createdDtMoment, "day")
         : true;
-      const textMatch = expense.description
-        .toLowerCase()
-        .includes(text.toLowerCase());
+      /* const textMatch = text
+        ? expense.description.toLowerCase().includes(text.toLowerCase())
+        : true;
 
-      const amountMatch =
-        amount.trim() !== "" ? expense.amount == parseFloat(amount) : true;
+      const amountMatch = !isNaN(parseFloat(amount))
+        ? expense.amount === parseFloat(amount)
+        : true;  
 
-      const inputMatch = textMatch || amountMatch;
-
-      return startDateMatch && endDateMatch && inputMatch;
+      return startDateMatch && endDateMatch && (textMatch || amountMatch);*/
+      const isNumber = !isNaN(parseFloat(text)) && isFinite(Number(text));
+      if (isNumber) {
+        return (
+          startDateMatch && endDateMatch && expense.amount === parseFloat(text)
+        );
+      } else {
+        return (
+          startDateMatch &&
+          endDateMatch &&
+          expense.description.toLowerCase().includes(text.toLowerCase())
+        );
+      }
     })
     .sort((a, b) => {
       if (sortBy === "date" && sortOrder === "desc") {
