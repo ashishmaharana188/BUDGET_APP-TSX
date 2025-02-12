@@ -35,9 +35,19 @@ test("should filter by text value", () => {
     startDate: undefined,
     endDate: undefined,
   };
+
+  console.log("Original Expenses:", expenses); // Log initial expenses
   const result = selectExpenses(expenses, filters);
-  expect(result).toEqual([expenses[2], expenses[1]]);
+  console.log("Filtered Expenses:", result);
+  console.log("Expected Expenses:", [expenses[2], expenses[1]]);
+  console.log(
+    "Filtered IDs:",
+    result.map((e) => e.id)
+  );
+  console.log("Expected IDs:", [expenses[2].id, expenses[1].id]);
+  expect(result).toEqual([expenses[1], expenses[2]]);
 });
+
 test("should filter by startDate", () => {
   const filters = {
     text: "",

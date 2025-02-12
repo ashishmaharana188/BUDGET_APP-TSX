@@ -28,13 +28,13 @@ exports[`should render description properly with no error 1`] = `
             inputmode="text"
             placeholder="MM/DD/YYYY"
             type="text"
-            value="02/11/2025"
+            value="02/12/2025"
           />
           <div
             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
           >
             <button
-              aria-label="Choose date, selected date is Feb 11, 2025"
+              aria-label="Choose date, selected date is Feb 12, 2025"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1ysp02-MuiButtonBase-root-MuiIconButton-root"
               id=":re:"
               tabindex="0"
@@ -112,13 +112,13 @@ exports[`should render error with expense data 1`] = `
             inputmode="text"
             placeholder="MM/DD/YYYY"
             type="text"
-            value="02/11/2025"
+            value="02/12/2025"
           />
           <div
             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
           >
             <button
-              aria-label="Choose date, selected date is Feb 11, 2025"
+              aria-label="Choose date, selected date is Feb 12, 2025"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1ysp02-MuiButtonBase-root-MuiIconButton-root"
               id=":r8:"
               tabindex="0"
@@ -193,13 +193,13 @@ exports[`should render invalid form 1`] = `
             inputmode="text"
             placeholder="MM/DD/YYYY"
             type="text"
-            value="02/11/2025"
+            value="02/12/2025"
           />
           <div
             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
           >
             <button
-              aria-label="Choose date, selected date is Feb 11, 2025"
+              aria-label="Choose date, selected date is Feb 12, 2025"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1ysp02-MuiButtonBase-root-MuiIconButton-root"
               id=":r2:"
               tabindex="0"
@@ -277,13 +277,13 @@ exports[`should render notes properly with error 1`] = `
             inputmode="text"
             placeholder="MM/DD/YYYY"
             type="text"
-            value="02/11/2025"
+            value="02/12/2025"
           />
           <div
             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
           >
             <button
-              aria-label="Choose date, selected date is Feb 11, 2025"
+              aria-label="Choose date, selected date is Feb 12, 2025"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1ysp02-MuiButtonBase-root-MuiIconButton-root"
               id=":rh:"
               tabindex="0"
