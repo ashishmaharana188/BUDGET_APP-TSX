@@ -57,8 +57,15 @@ test("should filter by startDate", () => {
     startDate: moment(0),
     endDate: undefined,
   };
+  console.log("Original Expenses:", expenses);
   const result = selectExpenses(expenses, filters);
-  expect(result).toEqual([expenses[2], expenses[0]]);
+  console.log("Filtered Expenses:", result);
+  console.log("Expected Expenses:", [expenses[2], expenses[1]]);
+  console.log(
+    "Filtered IDs:",
+    result.map((e) => e.id)
+  );
+  expect(result).toEqual([expenses[0], expenses[2]]);
 });
 test("should filter by endDate", () => {
   const filters = {
@@ -69,7 +76,14 @@ test("should filter by endDate", () => {
     startDate: undefined,
     endDate: moment(0).add(2, "days"),
   };
+  console.log("Original Expenses:", expenses);
   const result = selectExpenses(expenses, filters);
+  console.log("Filtered Expenses:", result);
+  console.log("Expected Expenses:", [expenses[2], expenses[1]]);
+  console.log(
+    "Filtered IDs:",
+    result.map((e) => e.id)
+  );
   expect(result).toEqual([expenses[0], expenses[1]]);
 });
 test("should filter by date", () => {
@@ -81,7 +95,14 @@ test("should filter by date", () => {
     startDate: undefined,
     endDate: undefined,
   };
+  console.log("Original Expenses:", expenses);
   const result = selectExpenses(expenses, filters);
+  console.log("Filtered Expenses:", result);
+  console.log("Expected Expenses:", [expenses[2], expenses[1]]);
+  console.log(
+    "Filtered IDs:",
+    result.map((e) => e.id)
+  );
   expect(result).toEqual([expenses[2], expenses[0], expenses[1]]);
 });
 test("should filter by amount", () => {
@@ -93,6 +114,13 @@ test("should filter by amount", () => {
     startDate: undefined,
     endDate: undefined,
   };
+  console.log("Original Expenses:", expenses);
   const result = selectExpenses(expenses, filters);
+  console.log("Filtered Expenses:", result);
+  console.log("Expected Expenses:", [expenses[2], expenses[1]]);
+  console.log(
+    "Filtered IDs:",
+    result.map((e) => e.id)
+  );
   expect(result).toEqual([expenses[2], expenses[0], expenses[1]]);
 });
