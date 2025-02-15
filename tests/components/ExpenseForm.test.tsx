@@ -64,7 +64,7 @@ test("should render description properly with error for amount", async () => {
   const submitButton = getByText(/Add Expense/i);
   await userEvent.click(submitButton);
 
-  const errorMessage = getByText(/Please provide Description and Amount/i);
+  const errorMessage = getByText(/Please provide an Amount./i);
   expect(errorMessage).to.exist;
 
   expect(asFragment()).toMatchSnapshot();

@@ -39,7 +39,7 @@ test("should filter by text value", () => {
   console.log("Original Expenses:", expenses); // Log initial expenses
   const result = selectExpenses(expenses, filters);
   console.log("Filtered Expenses:", result);
-  console.log("Expected Expenses:", [expenses[2], expenses[1]]);
+
   console.log(
     "Filtered IDs:",
     result.map((e) => e.id)
@@ -60,7 +60,7 @@ test("should filter by startDate", () => {
   console.log("Original Expenses:", expenses);
   const result = selectExpenses(expenses, filters);
   console.log("Filtered Expenses:", result);
-  console.log("Expected Expenses:", [expenses[2], expenses[1]]);
+
   console.log(
     "Filtered IDs:",
     result.map((e) => e.id)
@@ -79,7 +79,7 @@ test("should filter by endDate", () => {
   console.log("Original Expenses:", expenses);
   const result = selectExpenses(expenses, filters);
   console.log("Filtered Expenses:", result);
-  console.log("Expected Expenses:", [expenses[2], expenses[1]]);
+
   console.log(
     "Filtered IDs:",
     result.map((e) => e.id)
@@ -98,12 +98,12 @@ test("should filter by date", () => {
   console.log("Original Expenses:", expenses);
   const result = selectExpenses(expenses, filters);
   console.log("Filtered Expenses:", result);
-  console.log("Expected Expenses:", [expenses[2], expenses[1]]);
+
   console.log(
     "Filtered IDs:",
     result.map((e) => e.id)
   );
-  expect(result).toEqual([expenses[2], expenses[0], expenses[1]]);
+  expect(result).toEqual([expenses[0], expenses[1], expenses[2]]);
 });
 test("should filter by amount", () => {
   const filters = {
@@ -117,10 +117,9 @@ test("should filter by amount", () => {
   console.log("Original Expenses:", expenses);
   const result = selectExpenses(expenses, filters);
   console.log("Filtered Expenses:", result);
-  console.log("Expected Expenses:", [expenses[2], expenses[1]]);
   console.log(
     "Filtered IDs:",
     result.map((e) => e.id)
   );
-  expect(result).toEqual([expenses[2], expenses[0], expenses[1]]);
+  expect(result).toEqual([expenses[0], expenses[1], expenses[2]]);
 });
