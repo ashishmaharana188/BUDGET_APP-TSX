@@ -7,12 +7,7 @@ import NotFoundPage from "../components/NotFoundPage";
 import Header from "../components/Header";
 
 export const AppRouter = () => (
-  <BrowserRouter
-    future={{
-      v7_startTransition: true,
-      v7_relativeSplatPath: true,
-    }}
-  >
+  <BrowserRouter>
     <div>
       <Header />
       <Routes>
