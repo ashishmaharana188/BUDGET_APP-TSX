@@ -17,10 +17,7 @@ class AddExpensePage extends Component<ExpenseFormProps> {
   render() {
     return (
       <div>
-        <ExpenseForm
-          onSubmit={this.handleSubmit}
-          dispatch={this.props.dispatch}
-        />
+        <ExpenseForm onSubmit={this.handleSubmit} />
       </div>
     );
   }
