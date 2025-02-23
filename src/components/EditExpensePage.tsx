@@ -1,47 +1,51 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { useParams, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
 
-import { editExpense, removeExpense } from '../actions/expenses';
-import { expenseReducerIntf } from '../TS_Interface/GlobalInterface';
-import ExpenseForm from './ExpenseForm';
+import { editExpense, removeExpense } from "../actions/expenses";
+import { expenseReducerIntf } from "../TS_Interface/GlobalInterface";
+import ExpenseForm from "./ExpenseForm";
 
 const EditExpensePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { id } = useParams<{ id: string }>()
+  const { id } = useParams<{ id: string }>();
 
-  const expense = useSelector((state: any) => 
+  const expense = useSelector((state: any) =>
     state.expenses.find((expense: expenseReducerIntf) => expense.id === id)
   );
 
-    // Logging for debugging
-    console.log("editId", id);
-    console.log("expense", expense);
+  // Logging for debugging
+  console.log("editId", id);
+  console.log("expense", expense);
 
   return (
     <div>
-        <ExpenseForm 
+      <ExpenseForm
         expense={expense}
         onSubmit={(expense) => {
           if (id) {
             dispatch(editExpense(id, expense));
-            navigate('/');
+            navigate("/");
           } else {
-            console.log( `id is not present` )
+            console.log(`id is not present`);
           }
         }}
-        />
+      />
 
-        <button onClick={() => {
+      <button
+        onClick={() => {
           if (id) {
             dispatch(removeExpense(id));
-            navigate('/');
+            navigate("/");
           } else {
-            console.log('Entry not available to delete')
+            console.log("Entry not available to delete");
           }
-        }}>Remove</button>
+        }}
+      >
+        Remove
+      </button>
     </div>
-);
-  }
+  );
+};
 
-  export default EditExpensePage;
+export default EditExpensePage;
